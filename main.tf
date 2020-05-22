@@ -117,6 +117,8 @@ resource "aws_lb_target_group" "default" {
     create_before_destroy = true
   }
 
+  depends_on = ["aws_alb.default"]
+
   tags = merge(
     module.default_target_group_label.tags,
     var.target_group_additional_tags
